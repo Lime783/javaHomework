@@ -5,8 +5,10 @@ import java.util.Scanner;
 public class Task03 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        int age;
+
         System.out.print("Enter an age: ");
-        int age =  scanner.nextInt();
+        age =  scanner.nextInt();
         if (age < 12) {
             System.out.println("Child");
         } else if (age >= 12 && age <= 17) {

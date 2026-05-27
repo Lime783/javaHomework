@@ -5,8 +5,10 @@ import java.util.Scanner;
 public class Task05 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        int dayOfWeek;
+
         System.out.print("Enter a number representing the day of the week: ");
-        int dayOfWeek = scanner.nextInt();
+        dayOfWeek = scanner.nextInt();
         switch (dayOfWeek) {
             case 1:
                 System.out.print("Poniedziałek");

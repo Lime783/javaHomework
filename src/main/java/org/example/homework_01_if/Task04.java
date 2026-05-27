@@ -5,8 +5,10 @@ import java.util.Scanner;
 public class Task04 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        double temperatureC;
+
         System.out.print("Enter a temperature in Celcius: ");
-        double temperatureC = scanner.nextDouble();
+        temperatureC = scanner.nextDouble();
         if (temperatureC < 0.0) {
             System.out.println("Cold");
         } else if (temperatureC >= 0.0 && temperatureC <= 15.0) {
