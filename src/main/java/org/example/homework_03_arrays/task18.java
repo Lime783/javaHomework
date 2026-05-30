@@ -23,7 +23,7 @@ public class task18 {
     public static void fillMatrix(double[][] matrix) {
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
-                System.out.print("Enter number on position " + i + ", " + j + ": ");
+                System.out.print("Enter a number on position " + i + ", " + j + ": ");
                 matrix[i][j] = scanner.nextDouble();
             }
         }
@@ -74,11 +74,10 @@ public class task18 {
 
     public static void main(String[] args) throws Exception {
         double max, thirdMax;
-        double[][] tabOfDouble;
+        double[][] tabOfDouble = generateCustomMatrix();
         TreeSet<Double> setOfdoubles;
         int[][] coordinatesOfMaxValues;
 
-        tabOfDouble = generateCustomMatrix();
         fillMatrix(tabOfDouble);
 
         setOfdoubles = getDistinctValues(tabOfDouble);

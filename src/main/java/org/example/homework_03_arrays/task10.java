@@ -3,10 +3,12 @@ package org.example.homework_03_arrays;
 import java.util.Scanner;
 
 public class task10 {
-    public static void main(String[] args) throws Exception {
-        Scanner scanner = new Scanner(System.in);
-        int[] tabOfInt;
+
+    static Scanner scanner = new Scanner(System.in);
+
+    public static int[] generateArray() throws Exception {
         int length;
+        int[] tabOfInt;
 
         System.out.print("Enter the length of the array: ");
         length = scanner.nextInt();
@@ -15,11 +17,20 @@ public class task10 {
         } else {
             tabOfInt = new int[length];
         }
+        return tabOfInt;
+    }
 
-        for (int i = 0; i < length; i++) {
+    public static void fillArray(int[] tabOfInt) {
+        for (int i = 0; i < tabOfInt.length; i++) {
             System.out.print("Enter the number to add in position " + i + ": ");
             tabOfInt[i] = scanner.nextInt();
         }
+    }
+
+    public static void main(String[] args) throws Exception {
+        int[] tabOfInt =  generateArray();
+
+        fillArray(tabOfInt);
 
         for (int i = (tabOfInt.length - 1); i >= 0; i--) {
             System.out.print(tabOfInt[i] + " ");
