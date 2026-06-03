@@ -14,7 +14,7 @@ public class Task17 {
         }
 
         int max = 0;
-        for (int i = 1; i <= (Math.min(number1, number2) / 2) + 1; i++) {
+        for (int i = 1; i <= Math.min(number1, number2); i++) {
             if (number1 % i == 0 && number2 % i == 0) {
                 max = i;
             }
