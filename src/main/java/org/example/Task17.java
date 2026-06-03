@@ -9,8 +9,12 @@ public class Task17 {
             return Math.max(number1, number2);
         }
 
+        if (number1 == number2) {
+            return number1;
+        }
+
         int max = 0;
-        for (int i = 1; i <= Math.min(number1, number2); i++) {
+        for (int i = 1; i <= (Math.min(number1, number2) / 2) + 1; i++) {
             if (number1 % i == 0 && number2 % i == 0) {
                 max = i;
             }
@@ -20,8 +24,8 @@ public class Task17 {
 
     public static void main(String[] args) {
         System.out.println(BiggestMutualDiviser(4, 2));
-        System.out.println(BiggestMutualDiviser(7, 7));
         System.out.println(BiggestMutualDiviser(7, 11));
         System.out.println(BiggestMutualDiviser(3, 0));
+        System.out.println(BiggestMutualDiviser(7, 7));
     }
 }
