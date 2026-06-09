@@ -5,18 +5,18 @@ public class Car {
     int yearOfProduction;
     static int counter = 0;
 
-    // Task 02, 06
-    Car() {
-//        this.brand = "Unknown";
-//        this.yearOfProduction = 2000;
-        this("Unknown", 2000);
-    }
-
     // Task 03
     Car(String brand, int yearOfProduction) {
         this.brand = brand;
         this.yearOfProduction = yearOfProduction;
         counter++;
+    }
+
+    // Task 02, 06
+    Car() {
+    //    this.brand = "Unknown";
+    //    this.yearOfProduction = 2000;
+        this("Unknown", 2000);
     }
 
     // Task 04

@@ -1,5 +1,8 @@
 package org.example.homework_06_OOP.task01_10;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
         // Task 01
@@ -36,7 +39,7 @@ public class Main {
         System.out.println("There are currently " + Car.counter + " cars");
 
         // Task 10
-        Car[] cars = {car1, car2, car3};
+        List<Car> cars = Arrays.asList(car1, car2, car3, car4);
         for (Car car : cars) {
             car.introduceYourself();
         }
