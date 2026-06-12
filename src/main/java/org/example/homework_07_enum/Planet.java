@@ -1,4 +1,4 @@
-package org.example.template;
+package org.example.homework_07_enum;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;

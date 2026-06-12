@@ -1,8 +1,9 @@
-package org.example.template;
+package org.example.homework_07_enum;
 
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -88,7 +89,7 @@ public class Main {
         System.out.println("==========================");
 
         // Task 14
-        for (OrderStatus  orderStatus : OrderStatus.values()) {
+        for (OrderStatus orderStatus : OrderStatus.values()) {
             System.out.println(orderStatus + " | " + (orderStatus.isActive() ? "Active" : "Inactive"));
         }
         System.out.println("====================================================");
@@ -97,5 +98,38 @@ public class Main {
         for (Planet planet : Planet.values()) {
             System.out.println(planet);
         }
+        System.out.println("==========================");
+
+        // Task 16
+        Logger.INSTANCE.logInConsole("Siema eniu");
+        System.out.println("====================================================");
+
+        // Task 17
+        Scanner scanner = new Scanner(System.in);
+        MenuOption menuOption;
+
+        System.out.print("Choose a menu option (1 - start, 2 - stop, 3 - exit): ");
+        menuOption = switch (scanner.nextInt()){
+            case 1 -> MenuOption.START;
+            case 2 -> MenuOption.STOP;
+            case 3 -> MenuOption.EXIT;
+            default -> throw new Exception("Invalid menu option");
+        };
+        System.out.println("==========================");
+
+        // Task 18
+        Product product1 = new Product("Banana", Category.FOOD);
+        Product product2 = new Product("Hat", Category.CLOTHING);
+        Product product3 = new Product("Bulb", Category.ELECTRONICS);
+
+        List<Product> products = Arrays.asList(product1, product2, product3);
+
+        for (Product product : products) {
+            System.out.println(product);
+        }
+        System.out.println("====================================================");
+
+        // Task 19
+
     }
 }
