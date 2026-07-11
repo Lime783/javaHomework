@@ -1,10 +1,7 @@
 package org.example;
 
 
-import org.example.template.ArrayUtils;
-import org.example.template.MinMax;
-import org.example.template.Pair;
-import org.example.template.Stats;
+import org.example.template.*;
 
 import java.util.Arrays;
 
@@ -73,6 +70,43 @@ public class Main {
 
         Integer[] tabInteger2 = {null, 1, 2};
 //        System.out.println(MinMax.minMax(tabInteger2));
+        System.out.println("==========================================");
+    }
+
+    public static void task5() {
+        String[] tabString = {null, "a", null, "b", "a"};
+        System.out.println(ArrayUtils.indexOf(tabString, null));
+        System.out.println(ArrayUtils.lastIndexOf(tabString, null));
+        System.out.println(ArrayUtils.indexOf(tabString, "a"));
+        System.out.println(ArrayUtils.lastIndexOf(tabString, "a"));
+        System.out.println(ArrayUtils.lastIndexOf(tabString, "aaa"));
+        System.out.println("==========================================");
+    }
+
+    public static void task6() {
+        Integer[] tabinteger1 = {1, null, 3};
+        Integer[] tabinteger2 = {1, null, 3};
+        String[] tabString = {"x"};
+
+        System.out.println(ArrayUtils.arraysEqual(tabinteger1, tabinteger2));
+        System.out.println(ArrayUtils.arraysEqual(tabinteger2, tabString));
+        System.out.println(ArrayUtils.arraysEqual(tabString, null));
+        System.out.println(ArrayUtils.arraysEqual(null, null));
+        System.out.println("==========================================");
+    }
+
+    public static void task7() {
+        Triple<String, Integer, Boolean> triple1 = Triple.of("id", 42, true);
+        Triple<String, Integer, Boolean> triple2 = Triple.of("id", 42, true);
+        Triple<String, Integer, Boolean> triple3 = Triple.of("id", 1000, true);
+        System.out.println(triple1.equals(triple2));
+        System.out.println(triple2.equals(triple3));
+
+        System.out.println(triple1.first());
+        System.out.println(triple1.second());
+        System.out.println(triple1.third());
+
+        System.out.println(triple3);
     }
 
     public static void main(String[] args) {
@@ -80,5 +114,8 @@ public class Main {
         task2();
         task3();
         task4();
+        task5();
+        task6();
+        task7();
     }
 }
