@@ -1,17 +1,121 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
-public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+import org.example.template.*;
+
+import java.util.Arrays;
+
+public class Main {
+
+    public static void task1() {
+        Pair<Integer, String> p1 = Pair.of(1, "a");
+        Pair<Integer, String> p2 = Pair.of(1, "a");
+        Pair<Integer, String> p3 = Pair.of(1, "b");
+
+        System.out.println(p1.equals(p2));
+        System.out.println(p1.equals(p3));
+        System.out.println(p1.hashCode() == (p2.hashCode()));
+
+        Pair<Integer, String> pNull = Pair.of(null, "x");
+        System.out.println(pNull);
+        System.out.println(pNull.first());
+
+        Pair<String, String> pAB = Pair.of("A", "B");
+//        pAB.first() = "B";
+        System.out.println("==========================================");
+    }
+
+    public static void task2() {
+        String[] a = {"A", "B", "C"};
+        ArrayUtils.swap(a, 0, 2);
+        System.out.println(Arrays.toString(a));
+
+        Integer[] b = {1, 2, 3};
+//        ArrayUtils.swap(b, -1, 0);
+//        ArrayUtils.swap(b, 0, 3);
+
+        Object[] c = {"X", "Y"};
+        ArrayUtils.swap(c, 1, 1);
+        System.out.println(Arrays.toString(c));
+        System.out.println("==========================================");
+    }
+
+    public static void task3() {
+        Integer[] tab = {1, 2, 3, 4};
+        Stats<Integer> classToTest = new Stats<>(tab);
+        System.out.println(classToTest.mean());
+        System.out.println(classToTest.variance());
+
+        Double[] tab2 = {2.0, 2.0};
+        Double[] tab3 = {2.001, 1.999};
+        double eps = 0.01;
+        Stats<Double> classToTest2 = new Stats<>(tab2);
+        Stats<Double> classToTest3 = new Stats<>(tab3);
+        System.out.println(classToTest2.hasSameMean(classToTest3, eps));
+
+        Double[] tab4 = {};
+//        Stats<Double> classToTest4 = new Stats<>(tab4);
+        System.out.println("==========================================");
+    }
+
+    public static void task4() {
+        String[] tabString = {"A", "B", "C"};
+        System.out.println(MinMax.minMax(tabString));
+
+        Integer[] tabInteger = {1, 2, 3, 4, -1, 10, 10};
+        System.out.println(MinMax.minMax(tabInteger));
+
+        Integer[] tabSoleInteger = {1};
+        System.out.println(MinMax.minMax(tabSoleInteger));
+
+        Integer[] tabInteger2 = {null, 1, 2};
+//        System.out.println(MinMax.minMax(tabInteger2));
+        System.out.println("==========================================");
+    }
+
+    public static void task5() {
+        String[] tabString = {null, "a", null, "b", "a"};
+        System.out.println(ArrayUtils.indexOf(tabString, null));
+        System.out.println(ArrayUtils.lastIndexOf(tabString, null));
+        System.out.println(ArrayUtils.indexOf(tabString, "a"));
+        System.out.println(ArrayUtils.lastIndexOf(tabString, "a"));
+        System.out.println(ArrayUtils.lastIndexOf(tabString, "aaa"));
+        System.out.println("==========================================");
+    }
+
+    public static void task6() {
+        Integer[] tabinteger1 = {1, null, 3};
+        Integer[] tabinteger2 = {1, null, 3};
+        String[] tabString = {"x"};
+
+        System.out.println(ArrayUtils.arraysEqual(tabinteger1, tabinteger2));
+        System.out.println(ArrayUtils.arraysEqual(tabinteger2, tabString));
+        System.out.println(ArrayUtils.arraysEqual(tabString, null));
+        System.out.println(ArrayUtils.arraysEqual(null, null));
+        System.out.println("==========================================");
+    }
+
+    public static void task7() {
+        Triple<String, Integer, Boolean> triple1 = Triple.of("id", 42, true);
+        Triple<String, Integer, Boolean> triple2 = Triple.of("id", 42, true);
+        Triple<String, Integer, Boolean> triple3 = Triple.of("id", 1000, true);
+        System.out.println(triple1.equals(triple2));
+        System.out.println(triple2.equals(triple3));
+
+        System.out.println(triple1.first());
+        System.out.println(triple1.second());
+        System.out.println(triple1.third());
+
+        System.out.println(triple3);
+    }
+
+    public static void main(String[] args) {
+        task1();
+        task2();
+        task3();
+        task4();
+        task5();
+        task6();
+        task7();
     }
 }
