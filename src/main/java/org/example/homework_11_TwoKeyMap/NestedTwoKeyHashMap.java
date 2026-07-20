@@ -49,11 +49,6 @@ public class NestedTwoKeyHashMap<K1, K2, V> implements TwoKeyMap<K1, K2, V> {
         }
     }
 
-//    @Override
-//    public boolean containsValue(V value) {
-//        return false;
-//    }
-
     @Override
     public int size() {
         return size;
@@ -104,26 +99,11 @@ public class NestedTwoKeyHashMap<K1, K2, V> implements TwoKeyMap<K1, K2, V> {
         return listOfValues;
     }
 
-//    @Override
-//    public void putAll(TwoKeyMap<? extends K1, ? extends K2, ? extends V> other) {
-//
-//    }
-
     @Override
     public void clear() {
         data.clear();
         size = 0;
     }
-
-//    @Override
-//    public Map<K2, V> row(K1 k1) {
-//        return Map.of();
-//    }
-//
-//    @Override
-//    public Map<K1, V> column(K2 k2) {
-//        return Map.of();
-//    }
 
     @Override
     public Iterator<Entry<K1, K2, V>> iterator() {
@@ -154,11 +134,6 @@ public class NestedTwoKeyHashMap<K1, K2, V> implements TwoKeyMap<K1, K2, V> {
         @Override
         public V getValue() {
             return value;
-        }
-
-        @Override
-        public void setValue(V value) {
-            this.value = value;
         }
 
         @Override
