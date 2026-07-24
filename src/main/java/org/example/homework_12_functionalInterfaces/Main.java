@@ -5,6 +5,23 @@ import java.util.function.*;
 
 public class Main {
 
+    public static void allTasks(){
+        task1();
+        task2();
+        task3("  Hel lo   ");
+        task4();
+        task5();
+        task6();
+        task7("aaabb", "AaAbb");
+        task8(new ArrayList<>(List.of("a", "bb", "ccc", "dddd")));
+        task9();
+        task10();
+        task11("Siema eniu");
+        task12();
+        task13();
+        task14(new ArrayList<>(List.of(100.0, 250.0, 399.0)));
+    }
+
     public static void task1() {
         Runnable runnable1 = () -> System.out.println("Starting");
         Runnable runnable2 = () -> System.out.println("Finishing");
@@ -99,8 +116,8 @@ public class Main {
         removeNegatives.apply(nums);
 
         Integer maxNumber = Integer.MIN_VALUE;
-        for (int i = 0; i < nums.size(); i++) {
-            maxNumber = greaterNumber.apply(nums.get(i), maxNumber);
+        for (Integer number : nums) {
+            maxNumber = greaterNumber.apply(number, maxNumber);
         }
         System.out.println(nums);
         System.out.println(maxNumber);
@@ -145,9 +162,7 @@ public class Main {
 
     public static void task9() {
         Map<String, Integer> products = Map.of("Apple", 2, "Banana", 100, "Coconut", 0);
-        BiConsumer<String, Integer> reporter = (name, quantity) -> {
-            System.out.println("Name: " + name + ", quantity: " + quantity);
-        };
+        BiConsumer<String, Integer> reporter = (name, quantity) -> System.out.println("Name: " + name + ", quantity: " + quantity);
         printReport(products, reporter);
         System.out.println("=============================");
     }
@@ -178,24 +193,80 @@ public class Main {
         for (String password : passwords) {
             System.out.println(password);
         }
+        System.out.println("=============================");
     }
 
-    //    public static void task(){}
+    public static void task11(String textToFormat) {
+        StringFormatter capitalLetters = String::toUpperCase;
+        StringFormatter addPrefix = text -> ">>> " + text;
+        StringFormatter reverse = text -> {
+            String reversedString = "";
+            for (int i = 0; i < text.length(); i++) {
+                reversedString += text.charAt(text.length() - 1 - i);
+            }
+            return reversedString;
+        };
 
-    //    public static void task(){}
+        System.out.println(capitalLetters.format(textToFormat));
+        System.out.println(addPrefix.format(textToFormat));
+        System.out.println(reverse.format(textToFormat));
+        System.out.println("=============================");
+    }
 
-    //    public static void task(){}
+
+    // TODO: zapytac czy logika liczenia git w poleceniu
+    public static void task12() {
+        double[] grades = {3.0, 4.5, 5.0};
+        double[] weights = {1.0, 2.0, 3.0};
+        double maxWeight = Double.MIN_VALUE;
+
+        for (double weight : weights) {
+            if (weight > maxWeight) {
+                maxWeight = weight;
+            }
+        }
+        double average = 0;
+
+        TriFunction<Double, Double, Double, Double> weightedAverage = (grade, weight, maxxxWeight) -> grade * weight / maxxxWeight;
+        for (int i = 0; i < grades.length; i++) {
+            average += weightedAverage.apply(grades[i], weights[i], maxWeight);
+        }
+        System.out.println(average);
+        System.out.println("=============================");
+    }
+
+    public static void task13() {
+        ArrayList<Product> products = new ArrayList<>(List.of(new Product("Apple", 0.2, 5),
+                new Product("Bun", 0.2, 1),
+                new Product("Chimney", 1000.0, 4)));
+
+        // TODO: zapytac czy sie da ladniej
+        Comparator<Product> priceAscendingThenRatingDescending = Comparator
+                .comparingDouble(Product::price).reversed()
+                .thenComparingInt(Product::rating).reversed();
+
+        products.sort(priceAscendingThenRatingDescending);
+        System.out.println(products);
+        System.out.println("=============================");
+    }
+
+    public static void task14(ArrayList<Double> prices) {
+        PriceStrategy normal = basePrice -> basePrice;
+        PriceStrategy student = basePrice -> basePrice * 0.9;
+        PriceStrategy vip = basePrice -> basePrice * 0.8;
+        PriceStrategy blackFriday = basePrice -> basePrice * 0.7;
+
+        for (Double price : prices) {
+            System.out.println("Base price: " + price + "\n");
+            System.out.println(normal.apply(price));
+            System.out.println(student.apply(price));
+            System.out.println(vip.apply(price));
+            System.out.println(blackFriday.apply(price));
+            System.out.println("+++++++++++++");
+        }
+    }
 
     public static void main(String[] args) {
-        task1();
-        task2();
-        task3("  Hel lo   ");
-//        task4();
-        task5();
-        task6();
-        task7("aaabb", "AaAbb");
-        task8(new ArrayList<>(List.of("a", "bb", "ccc", "dddd")));
-        task9();
-        task10();
+        allTasks();
     }
 }
