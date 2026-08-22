@@ -13,7 +13,7 @@ public class Main {
 
 
     public static void main(String[] args) {
-        Bank bank  = new Bank();
+        Bank bank = new Bank();
         Random random = new Random(42);
         ExecutorService pool = Executors.newFixedThreadPool(8);
 
@@ -31,9 +31,9 @@ public class Main {
             long amountGrosz = (random.nextInt(MAX_TRANSACTION_AMOUNT - MIN_TRANSACTION_AMOUNT + 1) + MIN_TRANSACTION_AMOUNT) * GROSZ_IN_ZL;
             int finalTo = to; // finalne dla lambdy
             CompletableFuture<Void> transaction = CompletableFuture.runAsync(() -> {
-                        try{
+                        try {
                             bank.transfer(from, finalTo, amountGrosz);
-                        } catch(InsufficientFundsException e){
+                        } catch (InsufficientFundsException e) {
                             System.out.println(e.getMessage());
                         }
                     },
@@ -44,6 +44,6 @@ public class Main {
         CompletableFuture.allOf(all).join();
         pool.shutdown();
 
-        System.out.println("Total balance: " + bank.totalBalanceInGrosz()/ GROSZ_IN_ZL + "zl");
+        System.out.println("Total balance: " + bank.totalBalanceInGrosz() / GROSZ_IN_ZL + "zl");
     }
 }
